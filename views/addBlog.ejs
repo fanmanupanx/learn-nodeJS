@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>    
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+</head>
+<body>
+    <%- include menuLayout%>
+    
+    <div class="container">
+        <h2>Add Blog</h2>
+        <% if(locals.errors) { %>
+        <ul class="alert alert-warning">
+            <% Object.values(errors).forEach(function(error){ %>
+                <li><%= error.msg %></li>
+            <% }) %>
+        </ul>
+        <% } %>
+        <form class="" action="/blog/add" method="POST">
+            <div class="mb-3">
+                <label for="blogName" class="form-label">Blog Name</label>
+                <input type="text" class="form-control" id="blogName" name="name" placeholder="fanmanupanx">
+            </div>
+            <div class="mb-3">
+                <label for="blogDetail" class="form-label">Detail</label>
+                <textarea class="form-control" id="blogDetail" name="detail" rows="8"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="blogAuthor" class="form-label">Author</label>
+                <input type="text" class="form-control" id="blogAuthor" name="author">
+            </div>
+            <div class="form-group">
+                <input class="btn btn-success" type="submit" value="Save">
+                <input class="btn btn-secondary" type="reset" value="Clear">
+                <input class="btn btn-danger" type="button" value="Back">
+            </div>
+        </form>
+        <script>
+            CKEDITOR.replace( 'detailBlog' );
+        </script>
+    </div>
+
+</body>
+</html>
