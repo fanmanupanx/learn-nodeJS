@@ -42,11 +42,8 @@ router.post('/add',
             }).catch((err) => {
                 // An error happened while inserting
             }).then(() => {db.close();  res.render('index', { title: 'mongodb Express' });})
-
-            
+           
         }
-
-
         
 });
 
